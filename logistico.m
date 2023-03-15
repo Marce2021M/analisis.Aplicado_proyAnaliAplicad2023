@@ -1,4 +1,5 @@
 function [fx] = logistico(vectoy)
+
 global dataYear dataPop n
 
 k=vectoy(1);
