@@ -1,15 +1,14 @@
-function [fx,Po] = logistico(K,r,t,y)
-% Modelo Logístico
+function [fx] = logistico(vectoy)
+%global dataYear dataPop n
 
+k=vectoy(1);
+r=vectoy(2);
 
-n = 72;
-vecto = t - 1950*ones(n,1);
-P = K ./ ( 1 + exp(-r*(vecto)) .* ((K/y(1)) - 1) ); % P(t)
+vecto = dataYear - 1950*ones(n,1); %ajustar los años
+P = k ./ ( 1 + exp(-r*(vecto)) .* ((k/dataYear(1)) - 1) ); % calcula P(t)
 
-u = P' - y; %creamos un vector de las restas
-fx = u' * u; %Suma de cuadrados de la diferencia entre "P" y "y"
+u = P' - dataPop; % create a vector of the differences
+fx = u' * u; % Sum of squares of the differences between "P" and "y"
 
-% FIN
-Po = P';
 end
 
