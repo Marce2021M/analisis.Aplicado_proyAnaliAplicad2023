@@ -11,4 +11,4 @@ n = length(dataYear); % get the length of t vector
 
 x=[1 1]';
 
-[xf, j] = desnewton(rosenbrock, x);
+[xf, j] = desnewton('rosenbrock', x);
