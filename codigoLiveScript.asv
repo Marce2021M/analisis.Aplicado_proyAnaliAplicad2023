@@ -17,37 +17,31 @@ x=[1 1]';
 
 
 [x,k, vg] = regioncon('logistico',x);
-x
-% xN = [1.66915416161604 0.0365611162817698];
 
-xN = x;
-[xf, j] = desnewton('logistico', xN);
+x
+[xf, j] = desnewton('logistico', x);
 
 xf
-
 
 % REGION DE CONFIANZA
 % Create a figure window
 figure;
 vecto = dataYear - 1950*ones(n,1); %ajustar los años
-y = linspace(1950,2100,16);
-vectow = linspace(1950,2100,151);
 % Plot the function as a solid line
-plot(vectow, popChinaEst(x(1),x(2)) , 'm', 'LineWidth', 2);
+plot(vecto, popChina(x(1),x(2)) , 'm', 'LineWidth', 2);
 
 hold on; % Keep the plot window open to add the scatterplot
 
 % Plot the scatterplot of random points as circles
-scatter(dataYear, dataPop, 'o', 'MarkerFaceColor', 'blue', 'MarkerEdgeColor', 'black');
+scatter(vecto, dataPop, 'o', 'MarkerFaceColor', 'blue', 'MarkerEdgeColor', 'black');
 title("Región de Confianza")
-xlabel('Periodo de tiempo')
-ylabel('Mil millones de personas')
-xticks(y)
+
 
 % DESCENSO DE NEWTON (CHECAR EL NAN)
 % Create a figure window
 figure;
-
+y = linspace(1950,2100,16)
+vectow = linspace(1950,2100,151);
 % Plot the function as a solid line
 plot(vectow, popChinaEst(xf(1),xf(2)), 'm', 'LineWidth', 2);
 
@@ -57,9 +51,8 @@ hold on; % Keep the plot window open to add the scatterplot
 scatter(dataYear, dataPop, 'o', 'MarkerFaceColor', 'blue', 'MarkerEdgeColor', 'black');
 title("Newton")
 %legend({'Estimación población China','Datos China'},'Location','south')
+% axis([t(1) t(n) min(pop) max(pop)])
 xlabel('Periodo de tiempo')
-ylabel('Mil millones de personas')
+ylabel('1.8 ')
 xticks(y)
-
-
 
