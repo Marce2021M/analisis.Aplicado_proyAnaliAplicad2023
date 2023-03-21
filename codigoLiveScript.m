@@ -13,9 +13,11 @@ n = length(dataYear); % get the length of t vector
 % Corremos métodos numéricos en un punto en específico
 
 % Método de región de confianza
-x=[1 1]';
+x=[2 2]';
 [x,k, vg] = regioncon('logistico',x);
 x
+
+k
 
 % Método de descenso de Newton
 % xN = [1.66915416161604 0.0365611162817698];
@@ -23,6 +25,8 @@ xN = [2,2];
 [xf, j] = desnewton('logistico', xN);
 
 xf
+
+j
 
 % CREAMOS PLOTS
 
